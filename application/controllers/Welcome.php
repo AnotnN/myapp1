@@ -3,23 +3,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('welcome_message');
-	}
+    function __construct() {
+
+  	parent::__construct();
+
+         header("Content-Type: text/html; charset=UTF8");
+  
+         $this->load->helper(array('form', 'url'));
+         $this->load->database();
+         $this->load->library('session');
+  
+         $this->load->model('Data_forall', '', TRUE);
+         $this->load->model('Data_uni', '', TRUE);
+         
+         if (($this->session->userdata('userLang') != null)AND($this->session->userdata('userLang') != FALSE)) {   
+          //$this->lang->load('profile', $this->session->userdata('userLang'));
+          $this->config->set_item('language', $this->session->userdata('userLang'));
+         } 
+         
+         ini_set('date.timezone', TIMEZONE);  
+         setlocale(LC_ALL, "Russian_Russia.UTF8");
+         
+    }
+	
+    public function index() {
+        
+      $pageData['page_title'] = "Hello world";  
+      
+      $pageData['plug_components'] = $this->Data_forall->get_plug_components( array( "jquery","bootstrap","font_awesome" ) );
+      
+      $this->load->view('layouts/header',$pageData);  
+      $this->load->view('welcome_message');
+      $this->load->view('layouts/footer');  
+      
+    }
 }
