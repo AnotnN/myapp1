@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 define('TIMEZONE', "Europe/Moscow");
+define('BASELANG', "russian");
 
 /*
 |--------------------------------------------------------------------------

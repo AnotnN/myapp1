@@ -266,5 +266,38 @@
             }
         ],
         "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice."
+    },
+    {
+        "name": "huynguyen/bootstrapvalidate",
+        "version": "0.4.6",
+        "version_normalized": "0.4.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/loi-chuanoi/bootstrapvalidator.git",
+            "reference": "c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/loi-chuanoi/bootstrapvalidator/zipball/c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc",
+            "reference": "c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc",
+            "shasum": ""
+        },
+        "time": "2014-07-16 02:26:49",
+        "type": "library",
+        "extra": {
+            "path": "/"
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "Mathieu Maes",
+                "email": "email@example.com"
+            }
+        ],
+        "description": "Thư viện validate cho bootstrap"
     }
 ]

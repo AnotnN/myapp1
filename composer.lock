@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3867ae5973477e472adc1d590dc6d770",
-    "content-hash": "a40f4649c5ab70f69b1f83ccd2656715",
+    "hash": "82bbf41338fe69696cbee06aa5b7ee24",
+    "content-hash": "966b57dd11a5a874a2cd6eec4d349f68",
     "packages": [
         {
             "name": "components/bootstrap",
@@ -234,6 +234,37 @@
             ],
             "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
             "time": "2016-09-16 05:47:55"
+        },
+        {
+            "name": "huynguyen/bootstrapvalidate",
+            "version": "0.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loi-chuanoi/bootstrapvalidator.git",
+                "reference": "c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loi-chuanoi/bootstrapvalidator/zipball/c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc",
+                "reference": "c0ae4b4ade32d6d3ccf1087adc63bbc5d21740fc",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "path": "/"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mathieu Maes",
+                    "email": "email@example.com"
+                }
+            ],
+            "description": "Thư viện validate cho bootstrap",
+            "time": "2014-07-16 02:26:49"
         }
     ],
     "packages-dev": [
