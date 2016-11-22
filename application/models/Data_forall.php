@@ -25,6 +25,40 @@ function get_plug_components($param) {
  return $str;   
 }
 
+function get_css($param) {
+    
+ $str = "";   
+ 
+    $arr = array(
+     
+     "forall"=>"<link rel='stylesheet' href='".base_url()."/css/forall.css'>",
+     "orderform"=>"<link rel='stylesheet' href='".base_url()."/css/orderform.css'>"
+    );
+ 
+ foreach ($param as $k => $v) {
+  
+   if (isset($arr[$v]))  $str .= $arr[$v]; 
+     
+ }
+    
+ return $str;   
+}
+
+
+function get_all_date_from_post() {
+    
+ $arr = array();   
+ 
+ foreach ($_POST as $k => $v) {
+   
+  if ($this->input->post("$k", TRUE)) {$arr["$k"] = $this->input->post("$k");}
+     
+ }
+      
+    
+ if (count($arr)) { return $arr; }else{ return FALSE; }   
+}
+
 
 }
 ?>
