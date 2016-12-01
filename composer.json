@@ -16,7 +16,8 @@
 		"components/bootstrap": "^3.3",
 		"components/font-awesome": "^4.7",
 		"components/jqueryui": "^1.12",
-		"huynguyen/bootstrapvalidate": "^0.4.6"
+		"huynguyen/bootstrapvalidate": "^0.4.6",
+		"components/bootstrap-datetimepicker": "^2.3"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

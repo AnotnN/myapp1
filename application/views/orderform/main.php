@@ -1,10 +1,4 @@
 
-<!-- Bootstrap form validator>-->
-    <script src="http://localhost:8880/cprm-game.local/components/bootstrapvalidator/vendor/formvalidation/js/formValidation.min.js"></script>
-   <!-- <script src='<?php echo base_url();?>/vendor/components/bootstrapvalidate/bootstrapValidator.min.js'></script>-->
-    <script src="http://localhost:8880/cprm-game.local/components/bootstrapvalidator/vendor/formvalidation/js/bootstrap/bootstrap.min.js"></script>
-    <script src="http://formvalidation.io/vendor/formvalidation/js/language/<?=$localize."_".strtoupper($localize);?>.js"></script>
-    
 
 <style>
     
@@ -39,7 +33,22 @@
   
   });
   
-  
+ $(function(){ 
+    var date = new Date();
+    date.setDate(date.getDate());
+ 
+  $('.mydatetimepicker').datetimepicker({
+     language:  '<?=$localize;?>',
+     autoclose: 1,
+     weekStart: 1,
+     todayHighlight: 1,
+     minView: 0,
+     startDate: date
+  });
+ 
+ });
+
+ 
  
  $(function () {
   $('[data-toggle="popover"]').popover();
@@ -67,98 +76,6 @@
    }
 
    
-    $('#OrderForm').formValidation({
-        
-        framework: 'bootstrap',
-        
-        excluded: [':disabled'],
-        
-        locale: "<?=$localize."_".strtoupper($localize);?>",
-        
-        err: {
-            container: function($field, validator) {
-               var pref = $field.attr('name'); 
-               
-                if ($field.attr('name')=='adultchild[]') {pref = 'adultchild';}
-             
-               return $('#'+pref+'_messageContainer');
-            }
-        },
-                
-        button: {
-         selector: '#butt_send_order',
-         disabled: ''
-       },
-        
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        
-        fields: {
-         
-         id_resort: {
-                validators: {
-                    notEmpty: { 
-                      message: '<?=$this->lang->line('err_resort');?>'  
-                    },
-                    
-                }
-         },
-         
-         equip: {
-                validators: {
-                    notEmpty: { 
-                      message: '<?=$this->lang->line('err_equip');?>'  
-                    },
-                    
-                }
-         },
-         
-         kolvo: {
-                validators: {
-                    notEmpty: { 
-                      message: '<?=$this->lang->line('err_kolvo');?>'  
-                    },
-                    
-                }
-         },
-         
-         'adultchild[]': {
-                 validators: {
-                    choice: {
-                      min: 1,
-                      message: '<?=$this->lang->line('err_adult');?>'  
-                    },
-                    
-                }
-         },
-         
-         name: {
-                validators: {
-                    notEmpty: { 
-                      message: '<?=$this->lang->line('err_name');?>'  
-                    },
-                    
-                }
-         },
-         
-         tel: {
-                validators: {
-                    notEmpty: { 
-                      message: '<?=$this->lang->line('err_tel');?>'  
-                    },
-                    
-                }
-         }
-            
-        }  
-    }).on('success.form.fv', function(e) { 
-     mysubmit();
-     return false;
-    });
-  
     function mysubmit() {
    
      $.post( "<?php echo base_url();?>orderform/add_jqOrder", $('#OrderForm').serialize(), 

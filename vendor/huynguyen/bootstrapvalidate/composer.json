@@ -1,0 +1,16 @@
+{
+    "name": "huynguyen/bootstrapvalidate",
+    "description": "Thư viện validate cho bootstrap",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nguyễn Hữu Phước",
+            "email": "email@example.com"
+        }
+    ],
+    "extra":{
+        "path":"/"
+    }
+
+}

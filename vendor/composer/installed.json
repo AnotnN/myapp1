@@ -1,37 +1,5 @@
 [
     {
-        "name": "mikey179/vfsStream",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mikey179/vfsStream.git",
-            "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
-            "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2012-08-25 12:49:29",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "org\\bovigo\\vfs": "src/main/php"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD"
-        ],
-        "homepage": "http://vfs.bovigo.org/"
-    },
-    {
         "name": "components/jquery",
         "version": "3.1.1",
         "version_normalized": "3.1.1.0",
@@ -299,5 +267,97 @@
             }
         ],
         "description": "Thư viện validate cho bootstrap"
+    },
+    {
+        "name": "components/bootstrap-datetimepicker",
+        "version": "2.3.8",
+        "version_normalized": "2.3.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sabinus52/bootstrap-datetimepicker.git",
+            "reference": "fc82da7cd6144a8bd68f1f286ddb11a0e3be4571"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sabinus52/bootstrap-datetimepicker/zipball/fc82da7cd6144a8bd68f1f286ddb11a0e3be4571",
+            "reference": "fc82da7cd6144a8bd68f1f286ddb11a0e3be4571",
+            "shasum": ""
+        },
+        "require": {
+            "components/bootstrap": ">=2.0, <4.0"
+        },
+        "suggest": {
+            "robloach/component-installer": "Allows installation of Components via Composer"
+        },
+        "time": "2016-07-08 20:29:24",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "js/bootstrap-datetimepicker.js"
+                ],
+                "styles": [
+                    "css/bootstrap-datetimepicker.css"
+                ],
+                "files": [
+                    "js/*.js",
+                    "js/locales/bootstrap-datetimepicker.*.js",
+                    "css/*.css"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Sebastien MALOT"
+            }
+        ],
+        "description": "Both Date and Time picker widget based on twitter bootstrap",
+        "homepage": "http://www.malot.fr/bootstrap-datetimepicker/",
+        "keywords": [
+            "bootstrap",
+            "date",
+            "datepicker",
+            "datetime",
+            "jquery",
+            "time",
+            "timepicker"
+        ]
+    },
+    {
+        "name": "mikey179/vfsStream",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mikey179/vfsStream.git",
+            "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
+            "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2012-08-25 12:49:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "org\\bovigo\\vfs": "src/main/php"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD"
+        ],
+        "homepage": "http://vfs.bovigo.org/"
     }
 ]

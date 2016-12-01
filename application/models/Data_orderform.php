@@ -11,7 +11,9 @@ class Data_orderform extends CI_Model {
     
      $query = $this->db->query(""
             . "SELECT "
-             . "orders.*,"
+             . "orders.*, "
+             . "orders.date_time as date_time, "
+             . "DATE_FORMAT(orders.date_time,'%d.%m.%Y %H:%i') as date_time_format,"
              . "resorts.title as resort_title "
             . "FROM orders,resorts WHERE "
              . "(orders.id=$id)AND"
@@ -29,8 +31,17 @@ class Data_orderform extends CI_Model {
     $arr['adultchild'] = array_flip(explode(",", $arr['adultchild'] ));
     $arr['adultchild_title'] = "";
     
-    if (isset($arr['adultchild']['child'])) { $arr['adultchild']['child'] = 1; $arr['adultchild_title'] .= $this->lang->line('adult');}
-    if (isset($arr['adultchild']['adult'])) { $arr['adultchild']['adult'] = 1; if ($arr['adultchild_title']!="") $arr['adultchild_title'].=" ".  $this->lang->line('and'); $arr['adultchild_title'] .= " ".$this->lang->line('child'); }
+    if (isset($arr['adultchild']['adult'])) { 
+        
+        $arr['adultchild']['adult'] = 1; 
+        $arr['adultchild_title'] .= $this->lang->line('adult');
+        
+    }
+    if (isset($arr['adultchild']['child'])) { 
+        $arr['adultchild']['child'] = 1; 
+        if ($arr['adultchild_title']!="") $arr['adultchild_title'].=" ".$this->lang->line('and')." "; 
+        $arr['adultchild_title'] .= $this->lang->line('child'); 
+    }
     
     
     return $arr;   
