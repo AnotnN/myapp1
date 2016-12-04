@@ -57,22 +57,22 @@ class Feed extends CI_Controller {
     public function index($userLang) {
         
      $this->lang->load('orderform', $userLang);
-   
+     
+     
      $pageData['page_title'] = $this->lang->line('feed_title_page');
    
      $pageData['localize'] = $_POST['localize'] = $this->Data_uni->get_localize($userLang);
      
      $pageData['plug_components'] = $this->Data_forall->get_plug_components( array( "jquery","bootstrap","font_awesome" ) );
      $pageData['plug_css'] = $this->Data_forall->get_css( array("forall","feed") );
-      
-     $pageData['id_partner'] = 1;
-         
+     
+     
      $pageData['orders'] = $this->Data_feed->get_orders_by_feed();   
      
      $pageData['id_partner'] = 2;
         
      $this->load->view('layouts/header',$pageData); 
-     $this->load->view('feed/main');
+     $this->load->view('feed/feed_main');
      $this->load->view('layouts/footer');  
     }
     
@@ -98,7 +98,7 @@ class Feed extends CI_Controller {
        
        $pageData['order'] = $this->Data_orderform->get_order($this->input->post('id_order'));
          
-       $jq_html = $this->load->view('feed/success_pickup',$pageData,TRUE);
+       $jq_html = $this->load->view('feed/feed_success_pickup',$pageData,TRUE);
       }
       
       $response['jq_html'] = "$jq_html"; 
@@ -157,7 +157,9 @@ class Feed extends CI_Controller {
         
       $jq_html = "0";  
       $flag = FALSE;  
-        
+      
+      $this->lang->load('feed', $userLang);
+            
      if ($this->input->post('id_order') and $this->input->post('id_partner')) {
          
       $this->lang->load('orderform', $userLang);
@@ -178,7 +180,7 @@ class Feed extends CI_Controller {
       
       $pageData['order_feed'] = TRUE;
       
-      $jq_html = $this->load->view('orderform/form',$pageData,TRUE);  
+      $jq_html = $this->load->view('orderform/orderform_form',$pageData,TRUE);  
       
          
      }

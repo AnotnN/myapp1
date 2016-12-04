@@ -1,38 +1,37 @@
 <?php
-class Data_feed extends CI_Model {
+class Data_myorders extends CI_Model {
     
     
- function get_orders_by_feed() {
-     
+ function get_myorders($takegive,$id_partner) {
+      
   $arr = array();   
+  
+  $where_takegive = "AND(orders.id_partner_$takegive=$id_partner)";
+
   
   $query = $this->db->query(""
             . "SELECT "
              . "orders.*, "
              . "orders.date_time as date_time, "
              . "DATE_FORMAT(orders.date_time,'%d.%m.%Y %H:%i') as date_time_format,"
+             . "DATE_FORMAT(orders.data_born,'%d.%m.%Y %H:%i') as data_born_format,"
              . "resorts.title as resort_title "
             . "FROM orders,resorts WHERE "
              . "(orders.id_resort=resorts.id)"
-             . "AND(orders.status='vacant') "
-            . "ORDER BY data_born"
+             . $where_takegive
+             . "AND(orders.status!='deleted') "
+            . "ORDER BY status,data_born"
             . ";");
-     
+      
     if ($query) {
 
      $arr = $query->result_array();  
-     
-     foreach ($arr as $k => $v) {
-     
-       $arr[$k] = $this->Data_forall->adultchild_to_array($v);  
-         
-     }
-     
+        
     }    
      
   
   return $arr;
- }   
+ }
     
     
 }

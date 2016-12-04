@@ -52,7 +52,7 @@
         function(json) { 
                                
           if (json.jq_html!="0") {
-           window.location = "<?php echo base_url(); ?>/feed";
+           window.location = "<?php echo base_url(); ?>feed";
           } 
                                  
          return false;
@@ -68,7 +68,7 @@
         function(json) { 
                                
           if (json.jq_html!="0") {
-           window.location = "<?php echo base_url(); ?>/feed";
+           window.location = "<?php echo base_url(); ?>feed";
           } 
                                  
          return false;
@@ -138,7 +138,7 @@
      foreach ($orders as $row) {
       
       if ($i==0) echo "<br/>";   
-      echo $this->load->view('feed/order',array("order"=>$row),TRUE);   
+      echo $this->load->view('feed/feed_order',array("order"=>$row),TRUE);   
       $i++;   
      }
     

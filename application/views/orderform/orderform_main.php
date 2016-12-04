@@ -25,6 +25,17 @@
 
 <script type = "text/javascript">
  
+ 
+ function myalert(txt) {   
+    $("#alerts").html(txt);
+    alertdismiss();   
+ }
+ function alertdismiss() {   
+    $("#alerts").fadeTo(5000, 500).fadeOut(1000, function(){
+     $("#alerts").alert('close');
+    });
+ }
+ 
   $(document).ready(function() {   
      
    <?php if (isset($alert_msg) and $alert_msg!="") { ?>  
@@ -63,18 +74,6 @@
     });
  });
  
-   function myalert(txt) {
-   
-    $("#alerts").html(txt);
-    alertdismiss();  
-   
-   }
-   function alertdismiss() {   
-    $(".alert").fadeTo(5000, 500).fadeOut(1000, function(){
-     $(".alert").alert('close');
-    });
-   }
-
    
     function mysubmit() {
    
@@ -105,4 +104,6 @@
    
 </script>
 
-<div id="alerts"><?php if (isset($alert_msg)) echo $alert_msg;?></div>
+
+<div id="alerts" style="position: absolute; top:1%; right:1%;"></div>  
+  

@@ -34,7 +34,8 @@ function get_css($param) {
      
      "forall"=>"<link rel='stylesheet' href='".base_url()."/css/forall.css'>",
      "orderform"=>"<link rel='stylesheet' href='".base_url()."/css/orderform.css'>",
-     "feed"=>"<link rel='stylesheet' href='".base_url()."/css/feed.css'>"
+     "feed"=>"<link rel='stylesheet' href='".base_url()."/css/feed.css'>",
+     "myorders"=>"<link rel='stylesheet' href='".base_url()."/css/myorders.css'>"
     );
  
  foreach ($param as $k => $v) {
@@ -85,6 +86,26 @@ function get_adultchild_title($order) {
  
  return $str;   
 }
+
+function adultchild_to_array($arr){
+       
+    $arr['adultchild'] = array_flip(explode(",", $arr['adultchild'] ));
+    $arr['adultchild_title'] = "";
+    
+     if (isset($arr['adultchild']['adult'])) { 
+        
+        $arr['adultchild']['adult'] = 1; 
+        $arr['adultchild_title'] .= $this->lang->line('adult');
+        
+     }
+     if (isset($arr['adultchild']['child'])) { 
+        $arr['adultchild']['child'] = 1; 
+        if ($arr['adultchild_title']!="") $arr['adultchild_title'].=" ".$this->lang->line('and')." "; 
+        $arr['adultchild_title'] .= $this->lang->line('child'); 
+     }
+    
+    return $arr;
+   }
 
 
 }

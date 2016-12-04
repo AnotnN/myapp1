@@ -1,6 +1,9 @@
 <?php
 class Data_orderform extends CI_Model {
 
+   function update_order($param,$id_order) {
+       
+   }
     
    function get_order($id) {
     
@@ -27,26 +30,15 @@ class Data_orderform extends CI_Model {
 
             if (isset($arr[0])) { $arr= $arr[0]; }
         } 
-    
-    $arr['adultchild'] = array_flip(explode(",", $arr['adultchild'] ));
-    $arr['adultchild_title'] = "";
-    
-    if (isset($arr['adultchild']['adult'])) { 
         
-        $arr['adultchild']['adult'] = 1; 
-        $arr['adultchild_title'] .= $this->lang->line('adult');
         
-    }
-    if (isset($arr['adultchild']['child'])) { 
-        $arr['adultchild']['child'] = 1; 
-        if ($arr['adultchild_title']!="") $arr['adultchild_title'].=" ".$this->lang->line('and')." "; 
-        $arr['adultchild_title'] .= $this->lang->line('child'); 
-    }
+    $arr = $this->Data_forall->adultchild_to_array($arr);
     
     
     return $arr;   
    }
-
+   
+   
 
 }
 ?>

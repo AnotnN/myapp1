@@ -69,7 +69,7 @@ class Orderform extends CI_Controller {
       
       $pageData['id_order'] = '';
       
-      $pageData['form'] = $this->load->view('orderform/form',$pageData,TRUE);  
+      $pageData['form'] = $this->load->view('orderform/orderform_form',$pageData,TRUE);  
       
       //$pageData['order'] = $this->Data_orderform->get_order(22);
       
@@ -77,7 +77,7 @@ class Orderform extends CI_Controller {
       
       //$this->load->view('orderform/success');
       
-      $this->load->view('orderform/main');
+      $this->load->view('orderform/orderform_main');
       $this->load->view('layouts/footer');  
       
     }
@@ -92,7 +92,7 @@ class Orderform extends CI_Controller {
           
       }  
       
-      if ($jq_html=="0" or $jq_html==FALSE) $response['jq_alert_msg'] = "dddd".$this->input->post('dontdeleting'); 
+      if ($jq_html=="0" or $jq_html==FALSE) $response['jq_alert_msg'] = "".$this->input->post('dontdeleting'); 
       
       $response['jq_html'] = "$jq_html"; 
       
@@ -144,12 +144,16 @@ class Orderform extends CI_Controller {
           $pageData['id_order'] = $data['id_order']; 
           unset($data['id_order']);
           
+          unset($data['id_partner_take']);
+          
           $this->Data_uni->uni_update_arr($data,"orders","id",$pageData['id_order']);
+          //$this->Data_orderform->update_order($data,$pageData['id_order']);
           
           //Карточка для акцепта заказа со стороны инструктора
           if ($data['status']=="in_operation_step1") {
            $pageData['order'] = $this->Data_orderform->get_order($pageData['id_order']);
-           $jq_html_data_showing_order = $this->load->view('feed/success_pickup',$pageData,TRUE);    
+           $pageData['no_buttons'] = TRUE;
+           $jq_html_data_showing_order = $this->load->view('feed/feed_success_pickup',$pageData,TRUE);    
           }
           
         } else {
@@ -172,7 +176,7 @@ class Orderform extends CI_Controller {
          
         $pageData['order'] = $this->Data_orderform->get_order($pageData['id_order']);
       
-        $jq_html = $this->load->view('orderform/success',$pageData,TRUE);
+        $jq_html = $this->load->view('orderform/orderform_success',$pageData,TRUE);
        }
        
       $response['jq_html'] = "$jq_html"; 

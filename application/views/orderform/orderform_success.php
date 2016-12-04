@@ -1,6 +1,7 @@
 
 <script type = "text/javascript">
 
+ 
  function upd_order() {
    
   $("#id_order").val(<?php echo $id_order;?>); 
@@ -61,6 +62,27 @@
 
  function del_order() {
    
+   $.post( "<?php echo base_url();?>myorders/order_delete", { id_order: <?php echo $id_order;?> }, 
+                                  
+        function(json) { 
+                               
+          if (json.jq_html!="0") {
+            
+           $("#id_order").val(0);  
+           clearform();
+           $("#succsess_div").hide();
+           $("#order_form_div").show();
+           
+          } else {               
+            myalert(json.jq_alert_msg);   
+          }
+                                 
+         return false;
+         
+        }, "json");   
+     
+   
+   /*
    $.post( "<?php echo base_url();?>orderform/del_jqOrder", { id_order: <?php echo $id_order;?> }, 
                                   
         function(json) { 
@@ -79,35 +101,22 @@
          return false;
          
         }, "json"); 
-                 
+     */            
    
  }
 
 </script>
 <div id="order_card_div">
     
-  <?php echo $this->lang->line('resort').": ".$order['resort_title'] ; ?>
-  <br/>
-  <?php echo $this->lang->line('equip').": ".$this->lang->line("{$order['equip']}") ; ?>
-  <br/>
-  <?php echo $this->lang->line('kolvo_peop').": ".$order['kolvo'].", (".$order['adultchild_title'].")" ; ?>
-  <br/>
   <?php 
-   if (isset($order['adultchild']['child']) and $order['adultchild']['child']==1) {
-    echo $this->lang->line('age_child').": ";
-    if ($order['age_child_from']!=$order['age_child_to']) echo mb_strtolower($this->lang->line('from'), 'UTF-8')." "; 
-    echo $order['age_child_from'];
-    if ($order['age_child_from']!=$order['age_child_to']) echo " ".mb_strtolower($this->lang->line('to'), 'UTF-8')." ".$order['age_child_to']; 
-   }  
-  ?>
-  <br/>
-  <?php echo $this->lang->line('fst_less').": ".str_replace(" ", " ".$this->lang->line('in')." ", $order['date_time_format']); ?>
-  <br/>
-  <?php echo $this->lang->line('kolvo_days').": ".$order['kolvo_days'] ; ?>
-  <br/>
-  <?php echo $this->lang->line('hours_by_day').": ".$order['hours_by_day'] ; ?>
   
-  <br/><br/>
+   $pageData['order'] = $order;
+   
+   $this->load->view('forall/order_for_show',$pageData); 
+   
+  ?>
+    
+  <br/>
   <?php echo $this->lang->line('your_name').": ".$order['name'] ; ?>
   <br/>
   <?php echo $this->lang->line('tel').": ".$order['tel'] ; ?>

@@ -7,37 +7,28 @@
        <table><tr><td id="order_update_div_tab"></td></tr></table>
    </div>
     
-   <div id="data_showing_order">
-  <?php echo $this->lang->line('resort').": ".$order['resort_title'] ; ?>
-  <br/>
-  <?php echo $this->lang->line('equip').": ".$this->lang->line("{$order['equip']}") ; ?>
-  <br/>
-  <?php echo $this->lang->line('kolvo_peop').": ".$order['kolvo'].", (".$order['adultchild_title'].")" ; ?>
-  <br/>
-  <?php 
-   if (isset($order['adultchild']['child']) and $order['adultchild']['child']==1) {
-    echo $this->lang->line('age_child').": ";
-    if ($order['age_child_from']!=$order['age_child_to']) echo mb_strtolower($this->lang->line('from'), 'UTF-8')." "; 
-    echo $order['age_child_from'];
-    if ($order['age_child_from']!=$order['age_child_to']) echo " ".mb_strtolower($this->lang->line('to'), 'UTF-8')." ".$order['age_child_to']; 
-   }  
-  ?>
-  <br/>
-  <?php echo $this->lang->line('fst_less').": ".str_replace(" ", " ".$this->lang->line('in')." ", $order['date_time_format']); ?>
-  <br/>
-  <?php echo $this->lang->line('kolvo_days').": ".$order['kolvo_days'] ; ?>
-  <br/>
-  <?php echo $this->lang->line('hours_by_day').": ".$order['hours_by_day'] ; ?>
-  
-  <b>
-  <br/><br/>
-  <?php echo $this->lang->line('your_name').": ".$order['name'] ; ?>
-  <br/>
-  <?php echo $this->lang->line('tel').": ".$order['tel'] ; ?>
-  </b>  
-   </div>
+  <div id="data_showing_order">
+ 
+   <?php 
+   
+    $pageData['order'] = $order;
+   
+    $this->load->view('forall/order_for_show',$pageData);
+    
+   ?>   
+       
+   <b>
+   <br/>
+   <?php echo $this->lang->line('your_name').": ".$order['name'] ; ?>
+   <br/>
+   <?php echo $this->lang->line('tel').": ".$order['tel'] ; ?>
+   </b>  
+      
+  </div>
   
 </div>
+
+<?php if (!isset($no_buttons)) { ?>
 
 <div id="success_feedorder_title_div" style="background-color: #efbff2; color: #FFF; padding: 10px 5px 10px 5px;" >
   
@@ -86,6 +77,12 @@
     <?php echo $this->lang->line("error_accept");?>
    </label>
   </div>
+  <div class="radio">
+   <label>
+    <input type="radio" name="reasonDisalowOredr" id="reasonDisalowOredr2" value="wrong_dates_in_order">
+    <?php echo $this->lang->line("wrong_dates_in_order");?>
+   </label>
+  </div>
   </p> 
   
   <br/> 
@@ -93,3 +90,5 @@
   <button type="button" class="btn btn-default" onclick="close_disallow();"><?php echo $this->lang->line("cancel");?></button>
   
 </div>
+
+<?php } ?>

@@ -7,5 +7,6 @@
  $lang['dontdeleting'] = "Не удалось удалить.";
  $lang['accept'] = "Подтвердить";
  $lang['butt_save'] = "Сохранить";
+ $lang['delete'] = "Удалить";
  
 ?>
