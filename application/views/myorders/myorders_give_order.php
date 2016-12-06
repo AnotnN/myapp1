@@ -23,11 +23,12 @@
   <div class="panel-body" style="background-color: <?php echo $rgb_panel; ?>">
       
  <div id="feed_order_inf<?php echo $order['id']; ?>">    
-  
+     
   <?php echo $this->lang->line('data_born').": <b>".$order['data_born_format']."</b>" ; ?>
   <br/>
   <?php echo $this->lang->line('status').": <i>".$this->lang->line($order['status'])."</i>" ; ?>
   <br/><br/>
+  
   
   <?php 
   
@@ -36,7 +37,6 @@
    $this->load->view('forall/order_for_show',$pageData); 
    
   ?>
-  <br/>
   
  </div>
       
@@ -68,12 +68,14 @@
   </p> 
   
   <br/> 
-  <button type="button" class="btn btn-danger" onclick="order_delete(<?php echo $order['id']; ?>);"><?php echo $this->lang->line("delete") ; ?></button>
+  <button type="button" class="btn btn-danger" onclick="order_delete(<?php echo $order['id']; ?>);"><?php echo $this->lang->line("delete");?></button>
   <button type="button" class="btn btn-default" onclick="close_disallow(<?php echo $order['id']; ?>);"><?php echo $this->lang->line("cancel");?></button>
   
  </div>    
       
   <?php } ?>
+      
+      
   </div>    
   
   </div>

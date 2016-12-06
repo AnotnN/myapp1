@@ -32,8 +32,10 @@ class Myorders extends CI_Controller {
          
     }
     
-    function main($takegive) {
+    function take() {
       
+     $takegive = "take";   
+        
      $userLang = $this->session->userdata('userLang');   
         
      $pageData['page_title'] = $this->lang->line('myorders_title_page');
@@ -46,9 +48,39 @@ class Myorders extends CI_Controller {
      $this->lang->load('feed', $userLang);
      $this->lang->load('orderform', $userLang);
      
+     $pageData['takegive'] = "$takegive";
+     
      $pageData['id_partner'] = 2;
          
-     $pageData['orders'] = $this->Data_myorders->get_myorders($takegive,$pageData['id_partner']);   
+     $pageData['orders'] = $this->Data_myorders->get_myorders_take($pageData['id_partner']);   
+     
+     $this->load->view('layouts/header',$pageData); 
+     $this->load->view('myorders/myorders_main');
+     $this->load->view('layouts/footer');    
+        
+    }
+    
+    function give() {
+      
+     $takegive = "give";   
+        
+     $userLang = $this->session->userdata('userLang');   
+        
+     $pageData['page_title'] = $this->lang->line('myorders_title_page');
+   
+     $pageData['localize'] = $_POST['localize'] = $this->Data_uni->get_localize($userLang);
+     
+     $pageData['plug_components'] = $this->Data_forall->get_plug_components( array( "jquery","bootstrap","font_awesome" ) );
+     $pageData['plug_css'] = $this->Data_forall->get_css( array("forall","myorders") );
+     
+     $this->lang->load('feed', $userLang);
+     $this->lang->load('orderform', $userLang);
+     
+     $pageData['takegive'] = "$takegive";
+     
+     $pageData['id_partner'] = 1;
+         
+     $pageData['orders'] = $this->Data_myorders->get_myorders_give($pageData['id_partner']);   
      
      $this->load->view('layouts/header',$pageData); 
      $this->load->view('myorders/myorders_main');
@@ -97,6 +129,55 @@ class Myorders extends CI_Controller {
       echo json_encode($response);    
     }
     
+    function order_complete() {
+        
+      $userLang = $this->session->userdata('userLang');
+      
+      $jq_html = "0";  
+      $flag = FALSE;  
+      $alert_msg = "";
+      
+      $cena_dop_day = 100;
+      
+     if ($this->input->post('id_order') and $this->input->post('cena')) {
+      
+      $this->load->model('Data_orderform', '', TRUE);
+      
+      $order = $this->Data_orderform->get_order($this->input->post('id_order'));
+      
+      $this->load->library('form_validation');  
+     
+      $this->lang->load('myvalidation', $userLang);
+     
+      $this->form_validation->set_rules('cena', $this->lang->line('cena'), 'integer|min_length[3]|required');
+      
+      if ($this->form_validation->run() == FALSE) { 
+       
+        $alert_msg = "<div class='alert alert-danger'><span class='close' data-dismiss='alert'>×</span><strong>".$this->lang->line('error')."</strong>".validation_errors()."</div>";   
+           
+       } else {
+          
+         $itogo = ($order['hours_by_day']*$order['kolvo']*$this->input->post('cena'))/100*13;   
+         if ($order['kolvo_days']>1) { $itogo += ($order['kolvo_days']-1)*$cena_dop_day; }
+         $itogo = round($itogo);
+         
+         $data['status'] = "complete";
+         $data['credit'] = $itogo;
+         
+         $this->Data_uni->uni_update_arr($data,"orders","id",$this->input->post('id_order'));
+          
+         $jq_html = "1";   
+           
+       }
+         
+     }
+     
+     $response['jq_html'] = "$jq_html"; 
+     $response['jq_alert_msg'] = $alert_msg;
+      
+     echo json_encode($response); 
+        
+    }
     
     function order_update() {
         

@@ -8,5 +8,6 @@
  $lang['accept'] = "Подтвердить";
  $lang['butt_save'] = "Сохранить";
  $lang['delete'] = "Удалить";
+ $lang['finish'] = "Завершить";
  
 ?>

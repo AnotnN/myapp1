@@ -79,7 +79,7 @@
   </div>
   <div class="radio">
    <label>
-    <input type="radio" name="reasonDisalowOredr" id="reasonDisalowOredr2" value="wrong_dates_in_order">
+    <input type="radio" name="reasonDisalowOredr" id="reasonDisalowOredr3" value="wrong_dates_in_order">
     <?php echo $this->lang->line("wrong_dates_in_order");?>
    </label>
   </div>
