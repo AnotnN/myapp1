@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => 'mariadb119937-ski-schule.jelastic.regruhosting.ru',
+	'username' => 'skiuser',
+	'password' => 'ktjyfhlj1',
 	'database' => 'skibase',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
