@@ -17,3 +17,6 @@
 </head>
 <body>
     
+
+<div class="container-fluid">    
+ <?php $this->load->view('layouts/navbar');   ?>

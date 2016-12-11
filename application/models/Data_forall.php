@@ -87,7 +87,7 @@ function get_adultchild_title($order) {
  return $str;   
 }
 
-function adultchild_to_array($arr){
+ function adultchild_to_array($arr){
        
     $arr['adultchild'] = array_flip(explode(",", $arr['adultchild'] ));
     $arr['adultchild_title'] = "";
@@ -104,8 +104,47 @@ function adultchild_to_array($arr){
         $arr['adultchild_title'] .= $this->lang->line('child'); 
      }
     
-    return $arr;
+   return $arr;
+  }
+  
+  function get_partner() {
+    
+   $arr = array();
+   
+   if ($this->session->userdata('id_partner')) { 
+       
+     $id_partner = $this->session->userdata('id_partner');
+   
+     $query = $this->db->query(""
+             . "SELECT "
+              . "accounts.fio as fio,"
+              . "accounts.type_of_partner as type_of_partner,"
+              . "accounts.tel as tel,"
+              . "accounts.email as email,"
+              . "FIND_IN_SET ('give',accounts.givetake) as give,"
+              . "FIND_IN_SET ('take',accounts.givetake) as take,"
+              . "FIND_IN_SET ('ski',accounts.equip) as ski,"
+              . "FIND_IN_SET ('sb',accounts.equip) as sb"
+             ." FROM accounts WHERE (id='$id_partner')"
+             . ";");
+     
+        if ($query) {
+
+            $row = $query->result_array();
+            if ($row[0]) { 
+                 
+                $arr = $row[0];
+
+            }
+            
+        }
+     
    }
+   
+   
+   
+   return $arr;   
+  }
 
 
 }

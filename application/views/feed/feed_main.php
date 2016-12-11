@@ -128,7 +128,7 @@
  
 </script> 
 
-<div class="container-fluid">
+
 <div class="row">
  <div id="feed_div">  
  
@@ -146,5 +146,4 @@
  
  </div>    
     
-</div>    
 </div>  

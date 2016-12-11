@@ -63,7 +63,7 @@ class Orderform extends CI_Controller {
       $pageData['plug_components'] = $this->Data_forall->get_plug_components( array( "jquery","bootstrap","font_awesome","datetimepicker" ) );
       $pageData['plug_css'] = $this->Data_forall->get_css( array("forall","orderform") );
       
-      $pageData['id_partner'] = 1;
+      $pageData['id_partner'] = $this->session->userdata('id_partner');
       
       $pageData['resorts'] = $this->Data_uni->uni_get_alldata_from_table("resorts","");
       

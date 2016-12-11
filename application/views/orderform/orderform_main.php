@@ -8,7 +8,6 @@
     
 </style>    
 
-<div class="container-fluid">
 <div class="row">
  
  <div id="order_form_div">  
@@ -20,7 +19,7 @@
  <div id="succsess_div" style="display: none;"></div>   
     
 </div>    
-</div>    
+  
 
 
 <script type = "text/javascript">

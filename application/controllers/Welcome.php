@@ -27,9 +27,11 @@ class Welcome extends CI_Controller {
     }
 	
     public function index() {
-        
+     
+      $userLang = $this->session->userdata('userLang');
       $pageData['page_title'] = "Hello world";  
-      
+      $pageData['localize'] = $_POST['localize'] = $this->Data_uni->get_localize($userLang);
+     
       $pageData['plug_components'] = $this->Data_forall->get_plug_components( array( "jquery","bootstrap","font_awesome" ) );
       
       $this->load->view('layouts/header',$pageData);  

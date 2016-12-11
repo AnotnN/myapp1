@@ -162,7 +162,7 @@
     
 </script> 
 
-<div class="container-fluid">
+
 <div class="row">
  <div id="myorders_list_div" style="padding-top:5px;">  
  
@@ -183,6 +183,5 @@
 
   <div id="alerts" style="position: absolute; top:1%; right:1%;"></div>  
     
-</div>    
 </div>
 
