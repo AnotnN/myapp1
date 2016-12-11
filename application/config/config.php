@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://localhost:8880/myapp';
-$config['base_url'] = 'http://localhost:8880/myapp';
+$config['base_url'] = 'http://ski-schule.jelastic.regruhosting.ru/';
 
 /*
 |--------------------------------------------------------------------------
