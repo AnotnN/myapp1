@@ -24,6 +24,7 @@ class Welcome extends CI_Controller {
          ini_set('date.timezone', TIMEZONE);  
          setlocale(LC_ALL, "Russian_Russia.UTF8");
          
+         if (!$this->session->userdata('id_partner')) redirect("login/auth");
     }
 	
     public function index() {
