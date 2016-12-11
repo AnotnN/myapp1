@@ -76,12 +76,12 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'mariadb119937-ski-schule.jelastic.regruhosting.ru',
-	'username' => 'skiuser',
-	'password' => 'ktjyfhlj1',
+	'username' => 'root',
+	'password' => 'CQQqpa21134',
 	'database' => 'skibase',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
-	'pconnect' => FALSE,
+	'pconnect' => TRUE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
@@ -94,3 +94,15 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+
+$link = mysql_connect($db['default']['hostname'], $db['default']['username'], $db['default']['password']);
+//if connection is not successful you will see text error
+if (!$link) {
+       die('Could not connect: ' . mysql_error());
+}
+//if connection is successfuly you will see message bellow
+echo 'Connected successfully';
+ 
+mysql_close($link);
+
