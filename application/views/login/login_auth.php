@@ -17,5 +17,9 @@
       </form>
       
      <?php echo form_close(); ?>
+      
+      
+      <?php //echo "<br/>".anchor('login/reg',  $this->lang->line('reg')); ?>
+      
    </div>
  </div> 

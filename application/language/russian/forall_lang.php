@@ -16,4 +16,5 @@
  $lang['myorders_give'] = "Созданные заявки";
  $lang['myorders_take'] = "Принятые заявки";
  $lang['plus_order'] = "Добавить заявку";
+ $lang['feed_apps'] = "Лента заявок";
 ?>

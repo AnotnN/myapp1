@@ -24,11 +24,23 @@ class Welcome extends CI_Controller {
          ini_set('date.timezone', TIMEZONE);  
          setlocale(LC_ALL, "Russian_Russia.UTF8");
          
-         if (!$this->session->userdata('id_partner')) redirect("login/auth");
     }
 	
     public function index() {
      
+      if (!$this->session->userdata('id_partner')) { 
+          
+       redirect("login/auth");
+      
+      } else {
+          
+       $partner = $this->Data_forall->get_partner();
+       
+       if ($partner['take']==0 or !$partner['take']) redirect("myorders/give");
+       if ($partner['take']!=0) redirect("feed");
+          
+      }
+        
       $userLang = $this->session->userdata('userLang');
       $pageData['page_title'] = "Hello world";  
       $pageData['localize'] = $_POST['localize'] = $this->Data_uni->get_localize($userLang);

@@ -38,6 +38,11 @@
    
   ?>
   
+   <br/>
+   <?php echo $this->lang->line('your_name').": ".$order['name'] ; ?>
+   <br/>
+   <?php echo $this->lang->line('tel').": ".$order['tel'] ; ?>
+  
  </div>
       
   <div id="feed_buttons_div<?php echo $order['id']; ?>">
