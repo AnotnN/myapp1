@@ -198,9 +198,9 @@
 
 
     <!-- Bootstrap form validator>-->
-    <script src="<?php echo base_url();?>/components/bootstrapvalidator/vendor/formvalidation/js/formValidation.min.js"></script>
+    <script src="<?php echo base_url();?>/vendor/components/bootstrapvalidator/vendor/formvalidation/js/formValidation.min.js"></script>
     <!-- <script src='<?php echo base_url();?>/vendor/components/bootstrapvalidate/bootstrapValidator.min.js'></script>-->
-    <script src="<?php echo base_url();?>/components/bootstrapvalidator/vendor/formvalidation/js/bootstrap/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>/vendor/components/bootstrapvalidator/vendor/formvalidation/js/bootstrap/bootstrap.min.js"></script>
     <script src="http://formvalidation.io/vendor/formvalidation/js/language/<?=$localize."_".strtoupper($localize);?>.js"></script>
     
 
