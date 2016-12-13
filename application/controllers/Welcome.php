@@ -17,8 +17,9 @@ class Welcome extends CI_Controller {
          $this->load->model('Data_uni', '', TRUE);
          
          if (($this->session->userdata('userLang') != null)AND($this->session->userdata('userLang') != FALSE)) {   
-          //$this->lang->load('profile', $this->session->userdata('userLang'));
-          $this->config->set_item('language', $this->session->userdata('userLang'));
+          $userLang = $this->session->userdata('userLang');
+         } else {
+          $userLang = BASELANG;   
          } 
          
          ini_set('date.timezone', TIMEZONE);  
@@ -41,7 +42,12 @@ class Welcome extends CI_Controller {
           
       }
         
-      $userLang = $this->session->userdata('userLang');
+      if (($this->session->userdata('userLang') != null)AND($this->session->userdata('userLang') != FALSE)) {   
+          $userLang = $this->session->userdata('userLang');
+         } else {
+          $userLang = BASELANG;   
+         }
+         
       $pageData['page_title'] = "Hello world";  
       $pageData['localize'] = $_POST['localize'] = $this->Data_uni->get_localize($userLang);
      
