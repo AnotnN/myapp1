@@ -43,7 +43,16 @@ class Data_orderform extends CI_Model {
       
      $equip = explode(",", $data['equip']); 
      
-     $where_equip = "";
+     $where_equip = "AND (";
+     
+     foreach ($equip as $k => $v) {
+      if ($k>0) $where_equip .= " OR "; 
+      $where_equip .= "WHERE FIND_IN_SET ('$v',accounts.equip)";   
+     }
+     
+     $where_equip .= ")";
+     
+     
      
      $query = $this->db->query(""
              . "SELECT "
@@ -51,12 +60,12 @@ class Data_orderform extends CI_Model {
               . "accounts.email as email,"
               . "FIND_IN_SET ('ski',accounts.equip) as ski,"
               . "FIND_IN_SET ('sb',accounts.equip) as sb"
-             ." FROM accounts WHERE FIND_IN_SET ('take',accounts.givetake)$where_equip "
+             ." FROM accounts ( WHERE FIND_IN_SET ('take',accounts.givetake) )$where_equip "
              . ";");
      
      
      echo "<textarea name = 'smsg' rows = '40' cols = '80'>";
-     print_r($equip);
+     print_r($query->result_array());
      echo "</textarea >";
      die();
      
