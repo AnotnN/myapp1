@@ -278,7 +278,7 @@ $config['smtp_user'] = '61082b7ebfc9b3edea4511c2a7fc8959';
 $config['smtp_pass'] = 'ab33b435c2d2ebcf1ad84ca0323cde20';
 */
       
-    
+ /*   
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
 $config['newline'] = "\r\n"; 
