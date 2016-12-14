@@ -47,7 +47,7 @@ class Data_orderform extends CI_Model {
      
      foreach ($equip as $k => $v) {
       if ($k>0) $where_equip .= " OR "; 
-      $where_equip .= "WHERE FIND_IN_SET ('$v',accounts.equip)";   
+      $where_equip .= "FIND_IN_SET ('$v',accounts.equip)";   
      }
      
      $where_equip .= ")";
@@ -57,9 +57,7 @@ class Data_orderform extends CI_Model {
      $query = $this->db->query(""
              . "SELECT "
               . "accounts.fio as fio,"
-              . "accounts.email as email,"
-              . "FIND_IN_SET ('ski',accounts.equip) as ski,"
-              . "FIND_IN_SET ('sb',accounts.equip) as sb"
+              . "accounts.email as email"
              ." FROM accounts WHERE ( FIND_IN_SET ('take',accounts.givetake) )$where_equip "
              . ";");
      
