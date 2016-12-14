@@ -289,7 +289,6 @@ $ot_kogo = "no_reply@cprm-game.kz";
 //$config['protocol'] = 'sendmail';
 $this->email->initialize($config);
 
-if ((MYSITEID!=444)or((MYSITEID==444)AND($this->session->userdata('usernumb') != null))) $this->email->initialize($config);
 
 $ot_kogo_podpis = "$ot_kogo";
 //die("От кого:'$ot_kogo' Кому: '$to' Тема: '$tema' <br/> Текст: '$telo'");
