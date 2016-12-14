@@ -162,7 +162,7 @@ class Orderform extends CI_Controller {
             
          $pageData['id_order'] = $this->Data_uni->uni_insert($data,"orders");
          
-         if ($pageData['id_order']) $this->Data_orderform->send_notifs_by_addorder($data); 
+         
          
         /* if ($pageData['id_order']) {
              
@@ -177,6 +177,9 @@ class Orderform extends CI_Controller {
         } 
          
         $pageData['order'] = $this->Data_orderform->get_order($pageData['id_order']);
+        
+        if ($pageData['order']) $this->Data_orderform->send_notifs_by_addorder($data,$pageData['order']); 
+         
       
         $jq_html = $this->load->view('orderform/orderform_success',$pageData,TRUE);
        }

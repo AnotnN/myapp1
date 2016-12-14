@@ -39,8 +39,10 @@ class Data_orderform extends CI_Model {
    }
    
    
-   function send_notifs_by_addorder($data) {
+   function send_notifs_by_addorder($data,$order) {
       
+     $pageData['order'] = $order;  
+     
      $equip = explode(",", $data['equip']); 
      
      $where_equip = "AND (";
@@ -62,18 +64,18 @@ class Data_orderform extends CI_Model {
              . ";");
      
      
-     echo "<textarea name = 'smsg' rows = '40' cols = '80'>";
-     print_r($query->result_array());
-     echo "</textarea >";
-     die();
      
         if ($query) {
 
-            $row = $query->result_array();
-            if ($row[0]) { 
-                 
-                $arr = $row[0];
-
+            foreach ($query->result_array() as $row) {
+          
+              $ot = "skibase";  
+              $to = $row['email'];
+              $tema = $this->lang->line('neworder');
+              $telo = $this->load->view('forall/order_for_show',$pageData,TRUE); 
+              
+              $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 
+                
             }
             
         }  

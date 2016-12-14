@@ -23,5 +23,6 @@
  $lang['order_complete'] = "Заявка выполнена";
  $lang['komiss_k_oplat'] = "Комиссия к оплате";
  $lang['edit_cena'] = "Изменить цену часа";
+ $lang['neworder'] = "Новый заказ в системе";
  
 ?>
