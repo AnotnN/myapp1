@@ -39,7 +39,7 @@ class Data_orderform extends CI_Model {
    }
    
    
-   function send_notifs_by_addorder() {
+   function send_notifs_by_addorder($data) {
       
      $query = $this->db->query(""
              . "SELECT "
@@ -47,12 +47,12 @@ class Data_orderform extends CI_Model {
               . "accounts.email as email,"
               . "FIND_IN_SET ('ski',accounts.equip) as ski,"
               . "FIND_IN_SET ('sb',accounts.equip) as sb"
-             ." FROM accounts WHERE FIND_IN_SET ('take',accounts.givetake)"
+             ." FROM accounts WHERE FIND_IN_SET ('take',accounts.givetake)$where_equip "
              . ";");
      
      
      echo "<textarea name = 'smsg' rows = '40' cols = '80'>";
-     print_r($query->result_array());
+     print_r($data);
      echo "</textarea >";
      die();
      
