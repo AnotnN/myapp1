@@ -41,6 +41,10 @@ class Data_orderform extends CI_Model {
    
    function send_notifs_by_addorder($data) {
       
+     $equip = explode(",", $data['equip']); 
+     
+     $where_equip = "";
+     
      $query = $this->db->query(""
              . "SELECT "
               . "accounts.fio as fio,"
@@ -52,7 +56,7 @@ class Data_orderform extends CI_Model {
      
      
      echo "<textarea name = 'smsg' rows = '40' cols = '80'>";
-     print_r($data);
+     print_r($equip);
      echo "</textarea >";
      die();
      
