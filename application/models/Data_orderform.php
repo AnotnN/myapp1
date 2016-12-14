@@ -60,7 +60,7 @@ class Data_orderform extends CI_Model {
               . "accounts.email as email,"
               . "FIND_IN_SET ('ski',accounts.equip) as ski,"
               . "FIND_IN_SET ('sb',accounts.equip) as sb"
-             ." FROM accounts ( WHERE FIND_IN_SET ('take',accounts.givetake) )$where_equip "
+             ." FROM accounts WHERE ( FIND_IN_SET ('take',accounts.givetake) )$where_equip "
              . ";");
      
      
