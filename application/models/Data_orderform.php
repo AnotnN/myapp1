@@ -69,7 +69,7 @@ class Data_orderform extends CI_Model {
 
             foreach ($query->result_array() as $row) {
           
-              $ot = "skibase";  
+              $ot_kogo = "skibase";  
               $to = $row['email'];
               $tema = $this->lang->line('neworder');
               $telo = $this->load->view('forall/order_for_show',$pageData,TRUE); 
