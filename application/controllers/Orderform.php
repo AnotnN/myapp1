@@ -162,6 +162,8 @@ class Orderform extends CI_Controller {
             
          $pageData['id_order'] = $this->Data_uni->uni_insert($data,"orders");
          
+         if ($pageData['id_order']) $this->Data_orderform->send_notifs_by_addorder(); 
+         
         /* if ($pageData['id_order']) {
              
           $param = array(

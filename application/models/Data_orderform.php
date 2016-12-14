@@ -39,6 +39,37 @@ class Data_orderform extends CI_Model {
    }
    
    
+   function send_notifs_by_addorder() {
+      
+     $query = $this->db->query(""
+             . "SELECT "
+              . "accounts.fio as fio,"
+              . "accounts.email as email,"
+              . "FIND_IN_SET ('ski',accounts.equip) as ski,"
+              . "FIND_IN_SET ('sb',accounts.equip) as sb"
+             ." FROM accounts WHERE FIND_IN_SET ('take',accounts.givetake)"
+             . ";");
+     
+     
+     echo "<textarea name = 'smsg' rows = '40' cols = '80'>";
+     print_r($query->result_array());
+     echo "</textarea >";
+     die();
+     
+        if ($query) {
+
+            $row = $query->result_array();
+            if ($row[0]) { 
+                 
+                $arr = $row[0];
+
+            }
+            
+        }  
+       
+   }
+   
+   
 
 }
 ?>
