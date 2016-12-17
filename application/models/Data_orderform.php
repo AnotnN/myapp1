@@ -71,7 +71,7 @@ class Data_orderform extends CI_Model {
           
               $ot_kogo = "skibase";  
               $to = $row['email'];
-              $tema = $this->lang->line('neworder');
+              $tema = "Новый заказ в системе";//.$this->lang->line('neworder');
               $telo = $this->load->view('forall/order_for_show',$pageData,TRUE); 
               
               $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 

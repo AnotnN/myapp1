@@ -285,7 +285,7 @@ $config['newline'] = "\r\n";
 
 $this->load->library('email');
 
-$ot_kogo = "no_reply@cprm-game.kz";
+$ot_kogo = "no_reply@ski-schule.ru";
 
 $this->email->initialize($config);
 
