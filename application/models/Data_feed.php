@@ -15,7 +15,7 @@ class Data_feed extends CI_Model {
             . "FROM orders,resorts WHERE "
              . "(orders.id_resort=resorts.id)"
              . "AND(orders.status='vacant') "
-            . "ORDER BY data_born"
+            . "ORDER BY data_born DESC"
             . ";");
      
     if ($query) {
