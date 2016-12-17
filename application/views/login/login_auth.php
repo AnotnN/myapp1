@@ -19,7 +19,7 @@
      <?php echo form_close(); ?>
       
       
-      <?php //echo "<br/>".anchor('login/reg',  $this->lang->line('reg')); ?>
+      <?php echo "<br/><span style='margin:0 auto;'>".anchor('login/reg',  $this->lang->line('reg'))."</span>"; ?>
       
    </div>
  </div> 
