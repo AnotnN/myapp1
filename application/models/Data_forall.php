@@ -149,162 +149,24 @@ function get_adultchild_title($order) {
   
   function send_pismo($ot_kogo,$to,$tema,$telo) {
 
-   
-   /*   
-  $header = "MIME-Version: 1.0\r\n"; 
-  $header .= "Content-Type: text/html; charset=utf-8\r\n"; 
-  $header .= "From: INOKON.ru <info@inokon.ru>\r\n"; 
-  $header .= "Reply-to: info@inokon.ru\r\n"; 
-
-  mail($to,$tema,$telo,$header);  
-
- 
- 
-        
- // соединяемся с сервером $smtp_host на порт $smtp_port 
-  /*
-$smtp_msg = "";        
-$smtp_host = "smtp.mail.ru";
-$smtp_port = "25";
-$localhost = "localhost";
-$smtp_user = "robot_inokon@mail.ru";
-$smtp_pass = "ktjyfhlj1";
-
-$from = "inokon@inbox.ru";
-
-$data = "Content-type: text/html; charset=utf-8 \r\nSubject: $tema\r\n\r\n".$telo;
-
-$smtp_socket = fsockopen($smtp_host, $smtp_port) or die ('Не могу соединиться');   
-while ($line = fgets($smtp_socket, 515)) { 
-$smtp_msg .= $line; 
-  if (substr($line, 3, 1) == " ") break; 
-}     
-// приняли ответ сервера, если он начинается на 220 - значит всё ок, сервер работает 
-$answer = substr($smtp_msg, 0, 3);
-//if($answer != '220') die ("1");  
-// посылаем серверу приветствие и свой адрес 
-$answer = $this->smtp_send_cmd($smtp_socket, 'HELO '.$localhost);   
-//if($answer != '250') die ("2"); 
-// если всё ок, скажем серверу что хотим авторизоваться 
-$answer = $this->smtp_send_cmd($smtp_socket, 'AUTH LOGIN');    
-//if($answer != '334') die ("3");       
-// если сервер работает через smtp авторизацию на исходящие, посылаем ему логин от ящика $smtp_user 
-$answer = $this->smtp_send_cmd($smtp_socket, base64_encode($smtp_user));  
-//if($answer != '334') die ("login"); 
-// и пароль $smtp_pass 
-$answer = $this->smtp_send_cmd($smtp_socket, base64_encode($smtp_pass));  
-//if($answer != '235') die ("pass"); 
-// говорим от кого 
-$answer = $this->smtp_send_cmd($smtp_socket, 'MAIL FROM:'.$from);  
-//if($answer != '250') die ("from"); 
-// и кому посылаем 
-$answer = $this->smtp_send_cmd($smtp_socket, 'RCPT TO:'.$to);  
-//if($answer != '250') die ("to"); 
-// сообщаем, что начинаем вводить данные: 
-$answer = $this->smtp_send_cmd($smtp_socket, "DATA"); 
-//if($answer != '354') die ("DATA"); 
-// собственно сам процесс введения данных: 
-fputs($smtp_socket, $data."\r\n");  
-// говорим, что закончили посылать данные: 
-$answer = $this->smtp_send_cmd($smtp_socket, "."); 
-//if($answer != '250') die ("."); 
-// если всё ок, закрываем соединение с севером 
-$answer = $this->smtp_send_cmd($smtp_socket, "QUIT"); 
-//if($answer != '221') die ("QUIT"); 
-fclose($smtp_socket); 
-*/
-
-     /*  
-     $this->load->library('email');
-     $config['protocol'] = 'sendmail';
-    // $config['mailpath'] = '/usr/sbin/sendmail -t -i';
-     
-     $config['protocol'] = 'smtp';
-     $config['smtp_host'] = 'smtp.mail.ru';
-     $config['smtp_user'] = 'robot_inokon@mail.ru';
-     $config['smtp_pass'] = 'ktjyfhlj1';
-     $config['smtp_port'] = '25';
-     
-    
-     $config['useragent'] = 'mail.ru';    
-     //$config['protocol'] = 'mail';     
-    
-     $config['mailtype'] = 'html';
-     $this->email->initialize($config);
-
-     $this->email->from("inokon@inbox.ru", 'INOKON.ru');
-     $this->email->to("$to");
-     $this->email->subject("$tema");
-     $this->email->message("$telo");
-
-
-     $this->email->send();        
-   
-
-     $this->load->library('email');
-     
-     
-     $config['protocol'] = 'smtp';
-     $config['smtp_host'] = 'in.mailjet.com';
-     $config['smtp_user'] = '61082b7ebfc9b3edea4511c2a7fc8959';
-     $config['smtp_pass'] = '3eeedaf6abdd6d6d00af31df9f9c8c20';
-     $config['smtp_port'] = '587';
-    
-     //$config['useragent'] = 'mail.ru';    
-     //$config['protocol'] = 'mail';     
-    
-     $config['mailtype'] = 'html';
-     $this->email->initialize($config);
-
-     $this->email->from("inokon@inbox.ru", 'INOKON.ru');
-     $this->email->to("$to");
-     $this->email->subject("$tema");
-     $this->email->message("$telo");
-
-
-     $this->email->send();        
-   */  
- 
-
-//if (MYSITEID==1) { $config['protocol'] = 'smtp'; }  
-      /*
-$config['smtp_host'] = 'ssl://in.mailjet.com';
-$config['smtp_port'] = '465';
-$config['smtp_user'] = '61082b7ebfc9b3edea4511c2a7fc8959';
-$config['smtp_pass'] = 'ab33b435c2d2ebcf1ad84ca0323cde20';
-  */
-  
-  
-$config['charset'] = 'utf-8';
-$config['mailtype'] = 'html';
-$config['newline'] = "\r\n"; 
-
-$this->load->library('email');
-
-$ot_kogo = "newmailreg@mail.ru";
-
-$this->email->initialize($config);
-
-
-$ot_kogo_podpis = "$ot_kogo";
-
-$this->email->from("$ot_kogo", "$ot_kogo_podpis");
-$this->email->to("$to");
-$this->email->subject("$tema");
-$this->email->message("$telo");
-
-$this->email->send();
-
-
-  /* 
-    $headers = 'From: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+      $ot_kogo = "newmailreg@mail.ru";
+      $tema = "tema test";
+      $telo = "test";
       
-    mail($to, $tema, $telo, $headers);
-  */
-      
-     
-    }
+    $this->load->library('email');
+
+   $config['charset'] = 'Windows-1251';
+   $this->email->initialize($config);
+
+   $this->email->from("$ot_kogo", 'urfodu.ru');
+   $this->email->to("$kyda");
+   $this->email->subject("$tema");
+   $this->email->message("$telo");
+
+   $this->email->send();
+
+  
+  }
 
 }
 ?>
