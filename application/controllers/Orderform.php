@@ -56,7 +56,7 @@ class Orderform extends CI_Controller {
     
     function sendmail() {
         
-         $ot_kogo = "newmailreg@mail.ru";
+         $ot_kogo = "newmailreg@yandex.ru";
          $tema = "tema test";
          $telo = "test";
          $to = "navakus@mail.ru";
