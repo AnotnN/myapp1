@@ -162,6 +162,7 @@ function get_adultchild_title($order) {
  
         
  // соединяемся с сервером $smtp_host на порт $smtp_port 
+  /*
 $smtp_msg = "";        
 $smtp_host = "smtp.mail.ru";
 $smtp_port = "25";
@@ -211,7 +212,7 @@ $answer = $this->smtp_send_cmd($smtp_socket, ".");
 $answer = $this->smtp_send_cmd($smtp_socket, "QUIT"); 
 //if($answer != '221') die ("QUIT"); 
 fclose($smtp_socket); 
-
+*/
 
        
      $this->load->library('email');
