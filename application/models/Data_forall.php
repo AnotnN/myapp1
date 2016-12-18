@@ -150,7 +150,7 @@ function get_adultchild_title($order) {
   function send_pismo($ot_kogo,$to,$tema,$telo) {
 
    
-      
+   /*   
   $header = "MIME-Version: 1.0\r\n"; 
   $header .= "Content-Type: text/html; charset=utf-8\r\n"; 
   $header .= "From: INOKON.ru <info@inokon.ru>\r\n"; 
@@ -214,7 +214,7 @@ $answer = $this->smtp_send_cmd($smtp_socket, "QUIT");
 fclose($smtp_socket); 
 */
 
-       
+     /*  
      $this->load->library('email');
      $config['protocol'] = 'sendmail';
     // $config['mailpath'] = '/usr/sbin/sendmail -t -i';
@@ -263,7 +263,7 @@ fclose($smtp_socket);
 
 
      $this->email->send();        
-     
+   */  
  
 
 //if (MYSITEID==1) { $config['protocol'] = 'smtp'; }  
@@ -274,7 +274,7 @@ $config['smtp_user'] = '61082b7ebfc9b3edea4511c2a7fc8959';
 $config['smtp_pass'] = 'ab33b435c2d2ebcf1ad84ca0323cde20';
   */
   
-  /*
+  
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
 $config['newline'] = "\r\n"; 
@@ -294,7 +294,7 @@ $this->email->subject("$tema");
 $this->email->message("$telo");
 
 $this->email->send();
-*/
+
 
   /* 
     $headers = 'From: webmaster@example.com' . "\r\n" .
