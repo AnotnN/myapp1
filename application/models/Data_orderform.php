@@ -63,7 +63,7 @@ class Data_orderform extends CI_Model {
              ." FROM accounts WHERE ( FIND_IN_SET ('take',accounts.givetake) )$where_equip "
              . ";");
      
-     
+      
      
         if ($query) {
 
