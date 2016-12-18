@@ -154,6 +154,7 @@ function get_adultchild_title($order) {
    $config['charset'] = 'utf-8';
    $config['mailtype'] = 'html';
    $config['newline'] = "\r\n"; 
+   $config['smtp_port'] = '587';
    
    //$ot_kogo = "no_reply@cprm-game.kz";
 
