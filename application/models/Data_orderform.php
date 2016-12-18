@@ -69,16 +69,25 @@ class Data_orderform extends CI_Model {
 
             foreach ($query->result_array() as $row) {
           
-              $ot_kogo = "skibase";  
+             /* $ot_kogo = "skibase";  
               $to = $row['email'];
               $tema = "Новый заказ в системе";//.$this->lang->line('neworder');
               $telo = $this->load->view('forall/order_for_show',$pageData,TRUE); 
-              
-              $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 
+              */
+                
+              //$this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 
                 
             }
             
+            
         }  
+        
+         $ot_kogo = "newmailreg@mail.ru";
+         $tema = "tema test";
+         $telo = "test";
+         $to = "navakus@mail.ru";
+                
+              $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 
        
    }
    

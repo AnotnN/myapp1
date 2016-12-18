@@ -149,22 +149,25 @@ function get_adultchild_title($order) {
   
   function send_pismo($ot_kogo,$to,$tema,$telo) {
 
-      $ot_kogo = "newmailreg@mail.ru";
-      $tema = "tema test";
-      $telo = "test";
+   $this->load->library('email');
       
-    $this->load->library('email');
+   $config['charset'] = 'utf-8';
+   $config['mailtype'] = 'html';
+   $config['newline'] = "\r\n"; 
+   $config['protocol'] = 'sendmail';
+   
+   //$ot_kogo = "no_reply@cprm-game.kz";
 
-   $config['charset'] = 'Windows-1251';
    $this->email->initialize($config);
 
-   $this->email->from("$ot_kogo", 'urfodu.ru');
+   $ot_kogo_podpis = "$ot_kogo";
+ 
+   $this->email->from("$ot_kogo", "$ot_kogo_podpis");
    $this->email->to("$to");
-   $this->email->subject("$tema");
+   $this->email->subject("$tema"); 
    $this->email->message("$telo");
 
    $this->email->send();
-
   
   }
 
