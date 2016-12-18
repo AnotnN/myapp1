@@ -278,14 +278,13 @@ $config['smtp_user'] = '61082b7ebfc9b3edea4511c2a7fc8959';
 $config['smtp_pass'] = 'ab33b435c2d2ebcf1ad84ca0323cde20';
 */
       
-   
+ /*  
 $config['charset'] = 'utf-8';
 $config['mailtype'] = 'html';
 $config['newline'] = "\r\n"; 
 
 $this->load->library('email');
 
-//$ot_kogo = "no_reply@ski-schule.ru";
 $ot_kogo = "newmailreg@mail.ru";
 
 $this->email->initialize($config);
@@ -299,14 +298,15 @@ $this->email->subject("$tema");
 $this->email->message("$telo");
 
 $this->email->send();
-  
-/*   
+*/  
+
+   
     $headers = 'From: webmaster@example.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
       
     mail($to, $tema, $telo, $headers);
   
-     */ 
+     
     }
 
 }
