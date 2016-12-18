@@ -159,7 +159,7 @@ function get_adultchild_title($order) {
    $this->email->initialize($config);
 
    $this->email->from("$ot_kogo", 'urfodu.ru');
-   $this->email->to("$kyda");
+   $this->email->to("$to");
    $this->email->subject("$tema");
    $this->email->message("$telo");
 
