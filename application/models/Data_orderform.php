@@ -81,13 +81,7 @@ class Data_orderform extends CI_Model {
             
             
         }  
-        
-         $ot_kogo = "newmailreg@mail.ru";
-         $tema = "tema test";
-         $telo = "test";
-         $to = "navakus@mail.ru";
-                
-              $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo); 
+       
        
    }
    

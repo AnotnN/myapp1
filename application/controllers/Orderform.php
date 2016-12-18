@@ -53,7 +53,21 @@ class Orderform extends CI_Controller {
       if ($method!='css') call_user_func_array(array($this, $method), $pars);
     
     }
-	
+    
+    function sendmail() {
+        
+         $ot_kogo = "newmailreg@mail.ru";
+         $tema = "tema test";
+         $telo = "test";
+         $to = "navakus@mail.ru";
+                
+         $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo);   \
+         
+         echo "$ot_kogo,$to,$tema,$telo";
+        
+    }
+
+
     public function index($userLang) {
         
       $pageData['page_title'] = $this->lang->line('orderform_title_page');
