@@ -63,6 +63,13 @@ class Orderform extends CI_Controller {
                 
          $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo);   
          
+         $ot_kogo = "navakus@mail.ru";
+         $tema = "tema test";
+         $telo = "test";
+         $to = "newmailreg@yandex.ru";
+                
+         $this->Data_forall->send_pismo($ot_kogo,$to,$tema,$telo);   
+         
          echo "$ot_kogo,$to,$tema,$telo";
         
     }
